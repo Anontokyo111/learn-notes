@@ -53,6 +53,13 @@ AI 帮你大改代码前先 commit，等于买了保险。
 2. **Node 装到 E:\ 根目录的连锁反应**：PowerShell 优先匹配到 `npm.ps1` 脚本，
    被执行策略 Restricted 拦截 → 解决：`Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`。
 3. **GitHub 注册人机验证卡住**：刷新重试即可，别慌。
+4. **git push 连不上 GitHub**（报错演变：`Connection was reset` → `Could not connect to server`）：
+   - 原因链条：v2rayN 没在运行 → 系统代理指向"死端口"127.0.0.1:10808 → 而且 **git 默认不读取 Windows 系统代理**，必须显式配置。
+   - 解决：打开 v2rayN（左下角显示"自动配置系统代理"）后，执行：
+     `git config --global http.proxy http://127.0.0.1:10808`
+     `git config --global https.proxy http://127.0.0.1:10808`
+   - 经验：报错信息变化 = 排查方向正确；v2rayN 必须开着 git 才能连 GitHub。
+5. **第一次 push 弹浏览器授权是正常的**：Git 凭据管理器（GCM）自动弹出，点 Authorize 即可。
 
 ## 📌 明天计划（Day 2）
 
