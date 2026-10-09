@@ -1,29 +1,54 @@
-body{
-    background-color: #f5f8fa;/*背景色*/
-    font-family: "Microsoft YaHei", sans-serif;/*字体*/
+body {
+    background-color: #f5f8fa;
+    /*背景色*/
+    font-family: "Microsoft YaHei", sans-serif;
+    /*字体*/
 }
-h1{color: #1d1c1c;/*标题颜色*/
-   text-align: center;/*标题居中*/
+
+h1 {
+    color: #1d1c1c;
+    /*标题颜色*/
+    text-align: center;
+    /*标题居中*/
 }
-.my-box{
-    width: 300px;/*盒子宽度*/
-    padding: 20px;/*盒子内边距*/
-    margin:10px auto;/*盒子外边距*/
-    border:2px solid #3498db;/*盒子边框*/
+
+.my-box {
+    width: 300px;
+    /*盒子宽度*/
+    padding: 20px;
+    /*盒子内边距*/
+    margin: 10px auto;
+    /*盒子外边距*/
+    border: 2px solid #3498db;
+    /*盒子边框*/
     border-radius: 8px;
-    background-color:white;/*盒子背景色*/
+    background-color: white;
+    /*盒子背景色*/
 }
-table,th,td{
-    border:1px solid #ccc;/*表格边框*/
+
+table,
+th,
+td {
+    border: 1px solid #ccc;
+    /*表格边框*/
 }
-table{border-collapse: collapse;/*表格边框合并*/
-      width: 70%;/*表格宽度*/
-      margin: 0 auto;/*表格居中*/
+
+table {
+    border-collapse: collapse;
+    /*表格边框合并*/
+    width: 70%;
+    /*表格宽度*/
+    margin: 0 auto;
+    /*表格居中*/
 }
+
 #title {
-    color: #49b4df;/*标题颜色*/
-    text-align: center;/*标题居中*/
+    color: #49b4df;
+    /*标题颜色*/
+    text-align: center;
+    /*标题居中*/
 }
+
 .btn-link {
     display: inline-block;
     padding: 10px 24px;
@@ -31,9 +56,13 @@ table{border-collapse: collapse;/*表格边框合并*/
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s ease; /* 添加过渡效果 */
-    font-size: 14px; /* 设置字体大小 */
+    transition: background-color 0.3s ease;
+    /* 添加过渡效果 */
+    font-size: 14px;
+    /* 设置字体大小 */
 }
+
 .btn-link:hover {
-    background-color: #2980b9; /* 鼠标悬停时颜色变深 */
+    background-color: #2980b9;
+    /* 鼠标悬停时颜色变深 */
 }

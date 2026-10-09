@@ -1,0 +1,17 @@
+{
+    // ===== 缩进一致性配置（项目级，跟着项目走）=====
+
+    // 保存文件时，自动格式化整个文件
+    // ← 这才是真正解决"缩进不一致"的那一行
+    "editor.formatOnSave": true,
+
+    // 输入时自动格式化当前行（打完 ; 或 } 自动整理这一行）
+    "editor.formatOnType": true,
+
+    // 关闭"自动探测缩进"：防止不同文件在 2 空格/4 空格之间来回跳变
+    "editor.detectIndentation": false,
+
+    // 统一缩进：4 个空格
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+}

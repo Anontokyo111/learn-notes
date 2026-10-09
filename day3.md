@@ -139,3 +139,49 @@ table { border-collapse: collapse; }   /* 边框合并成单线，写在 table �
 
 - 掌握 Flex 布局，做出后台管理页面的"侧边栏 + 内容区"经典骨架
 - 开局使用 `Shift+Alt+F`，规范性评分冲 90
+
+---
+
+## 🔧 补充：VS Code 自动格式化配置（Day 3 晚间实战）
+
+### 最终配置（`learn-notes/.vscode/settings.json`）
+
+```jsonc
+{
+    "editor.formatOnSave": true,          // 保存时格式化整个文件 ← 解决缩进一致性的关键
+    "editor.formatOnType": true,          // 输入时整理当前行（辅助）
+    "editor.detectIndentation": false,    // 关闭自动探测缩进，防止 2/4 空格跳变
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+}
+```
+
+**知识点**：
+- `formatOnSave` 是真正解决缩进问题的那一行；`formatOnType` 只是顺手修当前行
+- `detectIndentation: false` 很关键——默认开启时 VS Code 会"猜"每个文件的缩进，是缩进不一致的元凶之一
+- VS Code **内置** HTML/CSS/JS 格式化器，不用装插件
+- 项目级配置放在 `<项目>/.vscode/settings.json`，**跟着项目走**，还能提交到 git
+
+### 🕳️ 踩坑记录（重要）
+
+1. **配置写对了 ≠ 配置生效了**
+   - `.vscode/settings.json` 只对"**VS Code 当前打开的那个文件夹**"生效
+   - 如果 VS Code 打开的是上级目录，子目录里的 `.vscode/settings.json` **完全不会被读取**
+2. **配置文件在 VS Code 运行时被外部创建** → 可能需要 `Ctrl+Shift+P` → `Reload Window` 才被读取
+3. **JSON 语法**：必须用**英文半角逗号** `,`；中文全角 `，` 会让设置整体失效；最后一项后面不能有逗号
+4. **用户级设置**（`%APPDATA%\Code\User\settings.json`）对所有项目生效，优先级低于项目级设置
+
+### 🧪 诊断方法（排查"配了却不生效"的通用思路）
+
+| 步骤 | 操作 | 判断 |
+|---|---|---|
+| 1 | 确认 VS Code 打开的是哪个文件夹 | 作用域是否匹配 |
+| 2 | `Ctrl+Shift+P` → `Format Document` | 能格式化 = 格式化器正常，问题在 formatOnSave |
+| 3 | 看右下角语言模式 | 是 `HTML`/`CSS` 而不是 `Plain Text` |
+| 4 | `Ctrl+Shift+P` → `Reload Window` | 让新配置被读取 |
+
+### 📌 两个格式化细节
+
+- 行尾注释会被挪到下一行，**建议注释写在属性上方**
+- `<head>`/`<body>` 默认不缩进（VS Code 的 `html.format.indentInnerHtml` 默认为 `false`），这是格式化器的正常行为
+
